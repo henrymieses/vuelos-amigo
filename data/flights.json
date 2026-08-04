@@ -5,14 +5,14 @@
     "scheduledTime": "2026-08-04 09:00-04:00",
     "estimatedTime": "2026-08-04 09:27-04:00",
     "notified": false,
-    "updatedAt": "2026-08-04T20:27:13.630Z"
+    "updatedAt": "2026-08-04T22:15:40.480Z"
   },
   {
     "flightNumber": "DL4443",
-    "status": "Unknown",
+    "status": "EnRoute",
     "scheduledTime": "2026-08-04 15:29-06:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-08-04 15:44-06:00",
     "notified": false,
-    "updatedAt": "2026-08-04T20:27:15.464Z"
+    "updatedAt": "2026-08-04T22:15:42.233Z"
   }
 ]
