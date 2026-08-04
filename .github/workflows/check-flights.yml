@@ -2,7 +2,9 @@ name: Check Flights
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    # Cada hora, 5am-medianoche hora de Nueva York (actualmente EDT, UTC-4 -> 9am-4am UTC).
+    # OJO: en horario estandar (EST, desde nov) la ventana local se corre 1 hora, hay que ajustar el cron entonces.
+    - cron: '0 0-3,9-23 * * *'
   workflow_dispatch:
     inputs:
       test_email:
