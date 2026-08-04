@@ -35,7 +35,7 @@ async function sendDelayEmail(flightNumber, info, isTest = false) {
   const notaPrueba = isTest
     ? '<p style="color:#888"><i>Nota: este es un correo de PRUEBA generado manualmente para confirmar que el envio funciona. No corresponde a un vuelo real.</i></p>'
     : '';
-  await fetch('https://api.resend.com/emails', {
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${RESEND_API_KEY}`,
@@ -50,6 +50,12 @@ async function sendDelayEmail(flightNumber, info, isTest = false) {
              ${notaPrueba}`
     })
   });
+  const body = await res.text();
+  if (!res.ok) {
+    console.error(`Resend error ${res.status} enviando correo de ${flightNumber}: ${body}`);
+  } else {
+    console.log(`Correo enviado para ${flightNumber} a [${DEST_EMAILS.join(', ')}]: ${body}`);
+  }
 }
 
 async function main() {
