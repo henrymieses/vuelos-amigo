@@ -3,7 +3,13 @@ name: Check Flights
 on:
   schedule:
     - cron: '*/30 * * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: 'Enviar un correo de PRUEBA (no revisa vuelos reales)'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -16,23 +22,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Debug variables (sin exponer las keys)
-        run: |
-          echo "FLIGHT_NUMBERS='$FLIGHT_NUMBERS'"
-          echo "RAPIDAPI_KEY length: ${#RAPIDAPI_KEY}"
-          echo "RESEND_API_KEY length: ${#RESEND_API_KEY}"
-          echo "DEST_EMAIL length: ${#DEST_EMAIL}"
-        env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          DEST_EMAIL: ${{ secrets.DEST_EMAIL }}
-          FLIGHT_NUMBERS: ${{ vars.FLIGHT_NUMBERS }}
       - run: node scripts/check-flights.js
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           DEST_EMAIL: ${{ secrets.DEST_EMAIL }}
           FLIGHT_NUMBERS: ${{ vars.FLIGHT_NUMBERS }}
+          TEST_MODE: ${{ github.event.inputs.test_email || 'false' }}
       - name: Commit updated data
         run: |
           git config user.name "flight-bot"

@@ -4,6 +4,7 @@ const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const DEST_EMAILS = process.env.DEST_EMAIL.split(',').map(s => s.trim());
 const FLIGHT_NUMBERS = process.env.FLIGHT_NUMBERS.split(',').map(s => s.trim());
+const TEST_MODE = process.env.TEST_MODE === 'true';
 const DATA_FILE = 'data/flights.json';
 
 function todayISO() {
@@ -30,7 +31,10 @@ async function fetchFlight(flightNumber) {
   return arr[0]; // primer resultado (ajusta si tu vuelo tiene varias etapas/codeshares)
 }
 
-async function sendDelayEmail(flightNumber, info) {
+async function sendDelayEmail(flightNumber, info, isTest = false) {
+  const notaPrueba = isTest
+    ? '<p style="color:#888"><i>Nota: este es un correo de PRUEBA generado manualmente para confirmar que el envio funciona. No corresponde a un vuelo real.</i></p>'
+    : '';
   await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -40,14 +44,25 @@ async function sendDelayEmail(flightNumber, info) {
     body: JSON.stringify({
       from: 'onboarding@resend.dev',
       to: DEST_EMAILS,
-      subject: `⚠️ Vuelo ${flightNumber} retrasado`,
+      subject: `${isTest ? '[PRUEBA] ' : ''}⚠️ Vuelo ${flightNumber} retrasado`,
       html: `<p>El vuelo <b>${flightNumber}</b> aparece como <b>${info.status}</b>.</p>
-             <p>Programado: ${info.scheduledTime}<br>Estimado/Real: ${info.estimatedTime}</p>`
+             <p>Programado: ${info.scheduledTime}<br>Estimado/Real: ${info.estimatedTime}</p>
+             ${notaPrueba}`
     })
   });
 }
 
 async function main() {
+  if (TEST_MODE) {
+    console.log('TEST_MODE activo: enviando correo de prueba...');
+    await sendDelayEmail('TEST-999', {
+      status: 'Delayed',
+      scheduledTime: '00:00 (prueba)',
+      estimatedTime: '00:30 (prueba)'
+    }, true);
+    console.log('Correo de prueba enviado.');
+  }
+
   const previous = fs.existsSync(DATA_FILE)
     ? JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'))
     : [];
