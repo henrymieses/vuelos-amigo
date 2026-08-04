@@ -10,6 +10,10 @@ function todayISO() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchFlight(flightNumber) {
   const date = todayISO();
   const res = await fetch(
@@ -19,8 +23,10 @@ async function fetchFlight(flightNumber) {
         'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
     }}
   );
-  if (!res.ok) throw new Error(`API error ${res.status} para ${flightNumber}`);
-  const arr = await res.json();
+  const text = await res.text();
+  if (!res.ok) throw new Error(`API error ${res.status} para ${flightNumber}: ${text.slice(0, 200)}`);
+  if (!text) throw new Error(`Respuesta vacia de la API para ${flightNumber}`);
+  const arr = JSON.parse(text);
   return arr[0]; // primer resultado (ajusta si tu vuelo tiene varias etapas/codeshares)
 }
 
@@ -49,6 +55,7 @@ async function main() {
 
   const results = [];
   for (const flightNumber of FLIGHT_NUMBERS) {
+    await sleep(1500); // evita el limite de 1 solicitud/segundo del plan free
     try {
       const raw = await fetchFlight(flightNumber);
       // AJUSTA estos campos según lo que veas en la respuesta real
