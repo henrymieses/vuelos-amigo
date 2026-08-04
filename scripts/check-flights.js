@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const DEST_EMAIL = process.env.DEST_EMAIL;
+const DEST_EMAILS = process.env.DEST_EMAIL.split(',').map(s => s.trim());
 const FLIGHT_NUMBERS = process.env.FLIGHT_NUMBERS.split(',').map(s => s.trim());
 const DATA_FILE = 'data/flights.json';
 
@@ -33,7 +33,7 @@ async function sendDelayEmail(flightNumber, info) {
     },
     body: JSON.stringify({
       from: 'onboarding@resend.dev',
-      to: [DEST_EMAIL],
+      to: DEST_EMAILS,
       subject: `⚠️ Vuelo ${flightNumber} retrasado`,
       html: `<p>El vuelo <b>${flightNumber}</b> aparece como <b>${info.status}</b>.</p>
              <p>Programado: ${info.scheduledTime}<br>Estimado/Real: ${info.estimatedTime}</p>`
