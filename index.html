@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Estado de vuelos</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .Delayed { color: #b00020; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Estado de vuelos</h1>
+  <table>
+    <thead><tr><th>Vuelo</th><th>Estado</th><th>Programado</th><th>Estimado/Real</th><th>Actualizado</th></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script>
+    fetch('data/flights.json?_=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const tbody = document.getElementById('tbody');
+        data.forEach(f => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${f.flightNumber}</td><td class="${f.status}">${f.status}</td><td>${f.scheduledTime}</td><td>${f.estimatedTime || '-'}</td><td>${f.updatedAt}</td>`;
+          tbody.appendChild(tr);
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+name: Check Flights
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/check-flights.js
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DEST_EMAIL: ${{ secrets.DEST_EMAIL }}
+          FLIGHT_NUMBERS: ${{ vars.FLIGHT_NUMBERS }}
+      - name: Commit updated data
+        run: |
+          git config user.name "flight-bot"
+          git config user.email "actions@github.com"
+          git add data/flights.json
+          git diff --cached --quiet || git commit -m "Actualiza estado de vuelos"
+          git push
