@@ -63,6 +63,7 @@
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
+    border-top: 6px solid var(--neutral-text);
     border-radius: 14px;
     padding: 20px;
     display: flex;
@@ -71,6 +72,9 @@
     transition: transform 0.15s ease;
   }
   .card:hover { transform: translateY(-2px); }
+  .card.ok { border-top-color: var(--ok-text); }
+  .card.warn { border-top-color: var(--warn-text); }
+  .card.neutral { border-top-color: var(--neutral-text); }
 
   .card-top {
     display: flex;
@@ -152,7 +156,8 @@
 
   function statusBadgeClass(status) {
     if (status === 'Delayed' || status === 'Cancelled' || status === 'Diverted') return 'warn';
-    if (status === 'Landed' || status === 'Arrived' || status === 'Departed') return 'ok';
+    if (status === 'Expected' || status === 'EnRoute' || status === 'Departed'
+        || status === 'Landed' || status === 'Arrived') return 'ok';
     return 'neutral';
   }
 
@@ -183,9 +188,9 @@
         return;
       }
       data.forEach(f => {
-        const card = document.createElement('div');
-        card.className = 'card';
         const badgeClass = statusBadgeClass(f.status);
+        const card = document.createElement('div');
+        card.className = `card ${badgeClass}`;
         const liveUrl = `https://www.flightaware.com/live/flight/${encodeURIComponent(f.flightNumber)}`;
         card.innerHTML = `
           <div class="card-top">
