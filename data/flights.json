@@ -1,11 +1,11 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "EnRoute",
+    "status": "Arrived",
     "scheduledTime": "2026-08-05 12:30-05:00",
     "estimatedTime": "2026-08-05 12:48-05:00",
     "notified": false,
-    "updatedAt": "2026-08-05T18:23:47.691Z"
+    "updatedAt": "2026-08-05T20:28:27.953Z"
   },
   {
     "flightNumber": "AA1227",
@@ -13,7 +13,7 @@
     "scheduledTime": "2026-08-05 08:50-04:00",
     "estimatedTime": "2026-08-05 09:18-04:00",
     "notified": false,
-    "updatedAt": "2026-08-05T18:23:49.522Z"
+    "updatedAt": "2026-08-05T20:28:29.742Z"
   },
   {
     "flightNumber": "DL4443",
@@ -21,6 +21,6 @@
     "scheduledTime": "2026-08-05 15:29-06:00",
     "estimatedTime": "-",
     "notified": false,
-    "updatedAt": "2026-08-05T18:23:51.332Z"
+    "updatedAt": "2026-08-05T20:28:32.200Z"
   }
 ]
