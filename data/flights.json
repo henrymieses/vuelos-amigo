@@ -5,7 +5,7 @@
     "scheduledTime": "2026-08-05 12:30-05:00",
     "estimatedTime": "-",
     "notified": false,
-    "updatedAt": "2026-08-05T00:06:39.033Z"
+    "updatedAt": "2026-08-05T04:12:50.832Z"
   },
   {
     "flightNumber": "AA1227",
@@ -13,7 +13,7 @@
     "scheduledTime": "2026-08-05 08:50-04:00",
     "estimatedTime": "-",
     "notified": false,
-    "updatedAt": "2026-08-05T00:06:40.848Z"
+    "updatedAt": "2026-08-05T04:12:52.606Z"
   },
   {
     "flightNumber": "DL4443",
@@ -21,6 +21,6 @@
     "scheduledTime": "2026-08-05 15:29-06:00",
     "estimatedTime": "-",
     "notified": false,
-    "updatedAt": "2026-08-05T00:06:42.628Z"
+    "updatedAt": "2026-08-05T04:12:54.431Z"
   }
 ]
