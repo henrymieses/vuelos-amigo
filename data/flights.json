@@ -18,11 +18,11 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-06T04:15:12.816Z"
+    "updatedAt": "2026-08-06T11:25:51.731Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Expected",
+    "status": "Unknown",
     "scheduledTime": "2026-08-06 08:50-04:00",
     "estimatedTime": "-",
     "departureAirport": {
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-06T04:15:14.573Z"
+    "updatedAt": "2026-08-06T11:25:53.686Z"
   },
   {
     "flightNumber": "DL4443",
@@ -60,6 +60,6 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-06T04:15:16.402Z"
+    "updatedAt": "2026-08-06T11:25:55.448Z"
   }
 ]
