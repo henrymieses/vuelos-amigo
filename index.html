@@ -122,6 +122,24 @@
   }
   .live-link:hover { text-decoration: underline; }
 
+  .mini-map {
+    background: var(--neutral-bg);
+    border-radius: 10px;
+    padding: 4px 0 2px;
+    position: relative;
+  }
+  .pos-tag {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .pos-tag.live { background: var(--ok-bg); color: var(--ok-text); }
+  .pos-tag.est { background: var(--neutral-bg); color: var(--muted); border: 1px solid var(--border); }
+
   .empty-state {
     text-align: center;
     color: var(--muted);
@@ -147,11 +165,23 @@
 </main>
 
 <script>
+  // icao = código de 3 letras que usa FlightAware en sus URLs (distinto del
+  // código IATA de 2 letras que usamos como key y que trae la API).
   const AIRLINES = {
-    AA: 'American Airlines', DL: 'Delta Air Lines', UA: 'United Airlines',
-    IB: 'Iberia', AV: 'Avianca', LA: 'LATAM', CM: 'Copa Airlines',
-    B6: 'JetBlue', WN: 'Southwest', BA: 'British Airways', AF: 'Air France',
-    LH: 'Lufthansa', KL: 'KLM', AM: 'Aeroméxico'
+    AA: { name: 'American Airlines', icao: 'AAL' },
+    DL: { name: 'Delta Air Lines', icao: 'DAL' },
+    UA: { name: 'United Airlines', icao: 'UAL' },
+    IB: { name: 'Iberia', icao: 'IBE' },
+    AV: { name: 'Avianca', icao: 'AVA' },
+    LA: { name: 'LATAM', icao: 'LAN' },
+    CM: { name: 'Copa Airlines', icao: 'CMP' },
+    B6: { name: 'JetBlue', icao: 'JBU' },
+    WN: { name: 'Southwest', icao: 'SWA' },
+    BA: { name: 'British Airways', icao: 'BAW' },
+    AF: { name: 'Air France', icao: 'AFR' },
+    LH: { name: 'Lufthansa', icao: 'DLH' },
+    KL: { name: 'KLM', icao: 'KLM' },
+    AM: { name: 'Aeroméxico', icao: 'AMX' }
   };
 
   function statusBadgeClass(status) {
@@ -170,13 +200,83 @@
     return map[status] || status;
   }
 
-  function airlineName(flightNumber) {
+  function airlineInfo(flightNumber) {
     const code = flightNumber.slice(0, 2).toUpperCase();
-    return AIRLINES[code] || code;
+    return AIRLINES[code] || { name: code, icao: code };
+  }
+
+  // FlightAware necesita el codigo ICAO de la aerolinea (3 letras, ej.
+  // AAL1227), no el IATA (2 letras, ej. AA1227) — si no, la pagina dice
+  // "Unknown Flight" aunque el vuelo exista.
+  function icaoFlightNumber(flightNumber) {
+    const code = flightNumber.slice(0, 2).toUpperCase();
+    const rest = flightNumber.slice(2);
+    const icao = AIRLINES[code]?.icao;
+    return icao ? `${icao}${rest}` : flightNumber;
   }
 
   function timeIconSvg() {
     return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+  }
+
+  // Proyecta lat/lon a coordenadas x/y dentro de un viewBox, con relleno.
+  // Suficiente para una previsualizacion pequeña (no es un mapa real).
+  function projectPoints(points, width, height, padding) {
+    const lats = points.map(p => p.lat);
+    const lons = points.map(p => p.lon);
+    const latSpan = Math.max(Math.max(...lats) - Math.min(...lats), 0.5);
+    const lonSpan = Math.max(Math.max(...lons) - Math.min(...lons), 0.5);
+    const minLat = Math.min(...lats), minLon = Math.min(...lons);
+    const maxLat = Math.max(...lats);
+    return points.map(p => ({
+      x: padding + ((p.lon - minLon) / lonSpan) * (width - 2 * padding),
+      y: padding + ((maxLat - p.lat) / latSpan) * (height - 2 * padding)
+    }));
+  }
+
+  // Mini-mapa con la ruta y la posicion del avion. Usa la posicion en vivo
+  // si la API la trajo; si no, ubica el avion de forma razonable segun el
+  // estado (en el origen, a medio camino, o en el destino) y lo marca como
+  // "Estimado" para no aparentar mas precision de la que hay.
+  function flightMapSvg(f) {
+    const dep = f.departureAirport, arr = f.arrivalAirport;
+    if (!dep || !arr || dep.lat == null || arr.lat == null) return '';
+
+    let planePoint, isLive = false;
+    if (f.position && f.position.lat != null) {
+      planePoint = f.position;
+      isLive = true;
+    } else if (f.status === 'Landed' || f.status === 'Arrived') {
+      planePoint = arr;
+    } else if (f.status === 'EnRoute' || f.status === 'Departed') {
+      planePoint = { lat: (dep.lat + arr.lat) / 2, lon: (dep.lon + arr.lon) / 2 };
+    } else {
+      planePoint = dep;
+    }
+
+    const W = 260, H = 90, PAD = 16;
+    const [pDep, pArr, pPlane] = projectPoints([dep, arr, planePoint], W, H, PAD);
+    const angle = Math.atan2(pArr.y - pDep.y, pArr.x - pDep.x) * 180 / Math.PI;
+    const showsBetweenAirports = planePoint !== dep && planePoint !== arr;
+    const tag = isLive
+      ? '<span class="pos-tag live">En vivo</span>'
+      : (showsBetweenAirports ? '<span class="pos-tag est">Posición estimada</span>' : '');
+
+    return `
+      <div class="mini-map">
+        <svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}">
+          <line x1="${pDep.x}" y1="${pDep.y}" x2="${pArr.x}" y2="${pArr.y}"
+                stroke="var(--border)" stroke-width="2" stroke-dasharray="4 4"/>
+          <circle cx="${pDep.x}" cy="${pDep.y}" r="4" fill="var(--muted)"/>
+          <circle cx="${pArr.x}" cy="${pArr.y}" r="4" fill="var(--muted)"/>
+          <text x="${pDep.x}" y="${Math.min(pDep.y + 18, H - 4)}" font-size="10" fill="var(--muted)" text-anchor="middle">${dep.iata || ''}</text>
+          <text x="${pArr.x}" y="${Math.min(pArr.y + 18, H - 4)}" font-size="10" fill="var(--muted)" text-anchor="middle">${arr.iata || ''}</text>
+          <g transform="translate(${pPlane.x},${pPlane.y}) rotate(${angle})">
+            <polygon points="8,0 -6,-5 -2,0 -6,5" fill="var(--accent)"/>
+          </g>
+        </svg>
+        ${tag}
+      </div>`;
   }
 
   fetch('data/flights.json?_=' + Date.now())
@@ -191,17 +291,18 @@
         const badgeClass = statusBadgeClass(f.status);
         const card = document.createElement('div');
         card.className = `card ${badgeClass}`;
-        const liveUrl = `https://www.flightaware.com/live/flight/${encodeURIComponent(f.flightNumber)}`;
+        const liveUrl = `https://www.flightaware.com/live/flight/${encodeURIComponent(icaoFlightNumber(f.flightNumber))}`;
         card.innerHTML = `
           <div class="card-top">
             <div>
               <div class="flight-number">${f.flightNumber}</div>
-              <div class="airline-name">${airlineName(f.flightNumber)}</div>
+              <div class="airline-name">${airlineInfo(f.flightNumber).name}</div>
             </div>
             <span class="badge ${badgeClass}">${statusLabel(f.status)}</span>
           </div>
           <div class="info-row">${timeIconSvg()}<span class="info-label">Programado:</span> ${f.scheduledTime}</div>
           <div class="info-row">${timeIconSvg()}<span class="info-label">Estimado/Real:</span> ${f.estimatedTime || '-'}</div>
+          ${flightMapSvg(f)}
           <div class="updated">Actualizado: ${new Date(f.updatedAt).toLocaleString('es')}</div>
           <a class="live-link" href="${liveUrl}" target="_blank" rel="noopener">
             Ver estado en vivo →

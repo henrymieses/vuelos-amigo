@@ -18,7 +18,7 @@ function sleep(ms) {
 async function fetchFlight(flightNumber) {
   const date = todayISO();
   const res = await fetch(
-    `https://aerodatabox.p.rapidapi.com/flights/number/${flightNumber}/${date}`,
+    `https://aerodatabox.p.rapidapi.com/flights/number/${flightNumber}/${date}?withLocation=true`,
     { headers: {
         'X-RapidAPI-Key': RAPIDAPI_KEY,
         'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
@@ -86,6 +86,34 @@ async function main() {
       const estimatedTime = raw.departure?.revisedTime?.local
         || raw.departure?.actualTime?.local || '-';
 
+      // Coordenadas de aeropuertos para el mini-mapa. Campos documentados
+      // en AeroDataBox; si tu plan no los trae, quedan en null y el
+      // frontend simplemente no dibuja el mapa para ese vuelo.
+      const departureAirport = raw.departure?.airport ? {
+        iata: raw.departure.airport.iata || null,
+        name: raw.departure.airport.name || raw.departure.airport.iata || '-',
+        lat: raw.departure.airport.location?.lat ?? null,
+        lon: raw.departure.airport.location?.lon ?? null
+      } : null;
+      const arrivalAirport = raw.arrival?.airport ? {
+        iata: raw.arrival.airport.iata || null,
+        name: raw.arrival.airport.name || raw.arrival.airport.iata || '-',
+        lat: raw.arrival.airport.location?.lat ?? null,
+        lon: raw.arrival.airport.location?.lon ?? null
+      } : null;
+
+      // Posicion en vivo del avion (requiere ?withLocation=true en la URL
+      // de arriba). AeroDataBox solo la entrega si el vuelo esta en el
+      // aire y hay datos ADS-B disponibles; en el plan free puede no venir.
+      // OJO: nombre exacto de los campos sin confirmar contra una respuesta
+      // real todavia — pruebalo en el "Test Endpoint" de RapidAPI y ajusta
+      // aqui si vienen distinto (ej. raw.location.latitude en vez de .lat).
+      const position = (raw.location && raw.location.lat != null && raw.location.lon != null) ? {
+        lat: raw.location.lat,
+        lon: raw.location.lon,
+        source: 'live'
+      } : null;
+
       const isDelayed = status === 'Delayed';
       const prev = previousByFlight[flightNumber];
       const alreadyNotified = prev?.notified && prev?.status === 'Delayed';
@@ -96,6 +124,7 @@ async function main() {
 
       results.push({
         flightNumber, status, scheduledTime, estimatedTime,
+        departureAirport, arrivalAirport, position,
         notified: isDelayed,
         updatedAt: new Date().toISOString()
       });
