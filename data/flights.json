@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Expected",
+    "status": "Unknown",
     "scheduledTime": "2026-08-07 12:30-05:00",
     "estimatedTime": "-",
     "departureAirport": {
@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-07T10:03:34.550Z"
+    "updatedAt": "2026-08-07T11:49:00.460Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Unknown",
+    "status": "Expected",
     "scheduledTime": "2026-08-07 08:50-04:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-08-07 08:50-04:00",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-07T10:03:36.353Z"
+    "updatedAt": "2026-08-07T11:49:02.281Z"
   },
   {
     "flightNumber": "DL4443",
@@ -60,6 +60,6 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-07T10:03:38.215Z"
+    "updatedAt": "2026-08-07T11:49:04.114Z"
   }
 ]
