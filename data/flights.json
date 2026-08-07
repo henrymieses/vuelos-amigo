@@ -1,8 +1,8 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Unknown",
-    "scheduledTime": "2026-08-06 12:30-05:00",
+    "status": "Expected",
+    "scheduledTime": "2026-08-07 12:30-05:00",
     "estimatedTime": "-",
     "departureAirport": {
       "iata": "DFW",
@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-06T14:19:27.339Z"
+    "updatedAt": "2026-08-07T00:42:01.357Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "EnRoute",
-    "scheduledTime": "2026-08-06 08:50-04:00",
-    "estimatedTime": "2026-08-06 09:07-04:00",
+    "status": "Expected",
+    "scheduledTime": "2026-08-07 08:50-04:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -37,18 +37,14 @@
       "lat": 32.8968,
       "lon": -97.038
     },
-    "position": {
-      "lat": 28.855545,
-      "lon": -88.72374,
-      "source": "live"
-    },
+    "position": null,
     "notified": false,
-    "updatedAt": "2026-08-06T14:19:29.153Z"
+    "updatedAt": "2026-08-07T00:42:03.146Z"
   },
   {
     "flightNumber": "DL4443",
     "status": "Expected",
-    "scheduledTime": "2026-08-06 15:29-06:00",
+    "scheduledTime": "2026-08-07 15:29-06:00",
     "estimatedTime": "-",
     "departureAirport": {
       "iata": "SLC",
@@ -64,6 +60,6 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-06T14:19:30.978Z"
+    "updatedAt": "2026-08-07T00:42:05.033Z"
   }
 ]
