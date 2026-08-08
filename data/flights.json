@@ -18,7 +18,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-08T13:48:30.275Z"
+    "updatedAt": "2026-08-08T14:34:16.680Z"
   },
   {
     "flightNumber": "AA1227",
@@ -38,12 +38,12 @@
       "lon": -97.038
     },
     "position": {
-      "lat": 28.88078,
-      "lon": -82.75037,
+      "lat": 30.97728,
+      "lon": -88.77643,
       "source": "live"
     },
     "notified": false,
-    "updatedAt": "2026-08-08T13:48:32.061Z"
+    "updatedAt": "2026-08-08T14:34:18.516Z"
   },
   {
     "flightNumber": "DL4443",
@@ -64,6 +64,6 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-08-08T13:48:33.819Z"
+    "updatedAt": "2026-08-08T14:34:20.452Z"
   }
 ]
