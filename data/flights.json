@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "EnRoute",
+    "status": "Arrived",
     "scheduledTime": "2026-09-06 12:30-05:00",
     "estimatedTime": "2026-09-06 13:48-05:00",
     "departureAirport": {
@@ -16,13 +16,9 @@
       "lat": 34.056,
       "lon": -117.601
     },
-    "position": {
-      "lat": 33.946518,
-      "lon": -116.97659,
-      "source": "live"
-    },
+    "position": null,
     "notified": false,
-    "updatedAt": "2026-09-06T21:09:24.746Z"
+    "updatedAt": "2026-09-06T23:36:31.706Z"
   },
   {
     "flightNumber": "AA1227",
@@ -43,13 +39,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-06T21:09:26.592Z"
+    "updatedAt": "2026-09-06T23:36:33.463Z"
   },
   {
     "flightNumber": "DL4443",
-    "status": "Expected",
+    "status": "Arrived",
     "scheduledTime": "2026-09-06 15:29-06:00",
-    "estimatedTime": "2026-09-06 15:29-06:00",
+    "estimatedTime": "2026-09-06 15:39-06:00",
     "departureAirport": {
       "iata": "SLC",
       "name": "Salt Lake City",
@@ -64,6 +60,6 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-06T21:09:28.791Z"
+    "updatedAt": "2026-09-06T23:36:35.236Z"
   }
 ]
