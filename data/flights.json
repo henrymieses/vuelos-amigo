@@ -17,12 +17,12 @@
       "lon": -117.601
     },
     "position": {
-      "lat": 32.681717,
-      "lon": -97.59227,
+      "lat": 33.946518,
+      "lon": -116.97659,
       "source": "live"
     },
     "notified": false,
-    "updatedAt": "2026-09-06T18:55:49.306Z"
+    "updatedAt": "2026-09-06T21:09:24.746Z"
   },
   {
     "flightNumber": "AA1227",
@@ -43,13 +43,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-06T18:55:51.094Z"
+    "updatedAt": "2026-09-06T21:09:26.592Z"
   },
   {
     "flightNumber": "DL4443",
-    "status": "Unknown",
+    "status": "Expected",
     "scheduledTime": "2026-09-06 15:29-06:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-09-06 15:29-06:00",
     "departureAirport": {
       "iata": "SLC",
       "name": "Salt Lake City",
@@ -64,6 +64,6 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-06T18:55:52.885Z"
+    "updatedAt": "2026-09-06T21:09:28.791Z"
   }
 ]
