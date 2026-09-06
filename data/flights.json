@@ -1,9 +1,9 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Arrived",
-    "scheduledTime": "2026-09-05 12:52-05:00",
-    "estimatedTime": "2026-09-05 13:11-05:00",
+    "status": "Expected",
+    "scheduledTime": "2026-09-06 12:30-05:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-05T22:42:26.368Z"
+    "updatedAt": "2026-09-06T00:42:51.315Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Arrived",
-    "scheduledTime": "2026-09-05 08:50-04:00",
-    "estimatedTime": "2026-09-05 09:17-04:00",
+    "status": "Expected",
+    "scheduledTime": "2026-09-06 08:50-04:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -39,13 +39,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-05T22:42:28.327Z"
+    "updatedAt": "2026-09-06T00:42:53.064Z"
   },
   {
     "flightNumber": "DL4443",
-    "status": "EnRoute",
-    "scheduledTime": "2026-09-05 15:29-06:00",
-    "estimatedTime": "2026-09-05 15:36-06:00",
+    "status": "Expected",
+    "scheduledTime": "2026-09-06 15:29-06:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "SLC",
       "name": "Salt Lake City",
@@ -58,12 +58,8 @@
       "lat": 34.056,
       "lon": -117.601
     },
-    "position": {
-      "lat": 35.1812,
-      "lon": -115.962204,
-      "source": "live"
-    },
+    "position": null,
     "notified": false,
-    "updatedAt": "2026-09-05T22:42:30.114Z"
+    "updatedAt": "2026-09-06T00:42:54.802Z"
   }
 ]
