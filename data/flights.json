@@ -1,9 +1,9 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Unknown",
+    "status": "EnRoute",
     "scheduledTime": "2026-09-12 12:20-05:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-09-12 12:44-05:00",
     "departureAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
@@ -16,9 +16,13 @@
       "lat": 34.056,
       "lon": -117.601
     },
-    "position": null,
+    "position": {
+      "lat": 34.404785,
+      "lon": -107.223206,
+      "source": "live"
+    },
     "notified": false,
-    "updatedAt": "2026-09-12T16:05:18.696Z"
+    "updatedAt": "2026-09-12T19:01:58.156Z"
   },
   {
     "flightNumber": "AA1227",
@@ -39,7 +43,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-12T16:05:20.537Z"
+    "updatedAt": "2026-09-12T19:01:59.895Z"
   },
   {
     "flightNumber": "DL4443",
