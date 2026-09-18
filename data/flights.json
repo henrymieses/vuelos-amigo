@@ -1,9 +1,9 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Arrived",
-    "scheduledTime": "2026-09-17 12:20-05:00",
-    "estimatedTime": "2026-09-17 12:29-05:00",
+    "status": "Expected",
+    "scheduledTime": "2026-09-18 12:20-05:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-17T21:57:45.619Z"
+    "updatedAt": "2026-09-18T00:03:55.774Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Arrived",
-    "scheduledTime": "2026-09-17 08:25-04:00",
-    "estimatedTime": "2026-09-17 08:42-04:00",
+    "status": "Expected",
+    "scheduledTime": "2026-09-18 08:25-04:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-09-17T21:57:47.547Z"
+    "updatedAt": "2026-09-18T00:03:57.535Z"
   },
   {
     "flightNumber": "DL4443",
