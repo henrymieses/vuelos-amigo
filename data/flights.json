@@ -1,9 +1,9 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Arrived",
-    "scheduledTime": "2026-10-04 12:20-05:00",
-    "estimatedTime": "2026-10-04 12:29-05:00",
+    "status": "Expected",
+    "scheduledTime": "2026-10-05 12:20-05:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-04T22:53:03.076Z"
+    "updatedAt": "2026-10-05T01:44:21.854Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Arrived",
-    "scheduledTime": "2026-10-04 08:25-04:00",
-    "estimatedTime": "2026-10-04 08:31-04:00",
+    "status": "Expected",
+    "scheduledTime": "2026-10-05 13:45-04:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -32,14 +32,14 @@
       "lon": -80.2906
     },
     "arrivalAirport": {
-      "iata": "DFW",
-      "name": "Dallas-Fort Worth",
-      "lat": 32.8968,
-      "lon": -97.038
+      "iata": "AUS",
+      "name": "Austin Bergstrom",
+      "lat": 30.194498,
+      "lon": -97.6699
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-04T22:53:04.843Z"
+    "updatedAt": "2026-10-05T01:44:23.749Z"
   },
   {
     "flightNumber": "DL4443",
