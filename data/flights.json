@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Expected",
+    "status": "Unknown",
     "scheduledTime": "2026-10-09 12:20-05:00",
     "estimatedTime": "-",
     "departureAirport": {
@@ -18,7 +18,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-09T08:39:16.736Z"
+    "updatedAt": "2026-10-09T15:55:31.652Z"
   },
   {
     "flightNumber": "AA1227",
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-09T08:39:18.485Z"
+    "updatedAt": "2026-10-09T15:55:33.540Z"
   },
   {
     "flightNumber": "DL4443",
