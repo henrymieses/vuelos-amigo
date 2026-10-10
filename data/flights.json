@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "EnRoute",
+    "status": "Arrived",
     "scheduledTime": "2026-10-10 12:20-05:00",
     "estimatedTime": "2026-10-10 13:25-05:00",
     "departureAirport": {
@@ -16,17 +16,13 @@
       "lat": 34.056,
       "lon": -117.601
     },
-    "position": {
-      "lat": 33.324966,
-      "lon": -106.0112,
-      "source": "live"
-    },
+    "position": null,
     "notified": false,
-    "updatedAt": "2026-10-10T19:53:07.668Z"
+    "updatedAt": "2026-10-10T23:20:06.257Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "EnRoute",
+    "status": "Arrived",
     "scheduledTime": "2026-10-10 13:45-04:00",
     "estimatedTime": "2026-10-10 14:04-04:00",
     "departureAirport": {
@@ -41,13 +37,9 @@
       "lat": 30.194498,
       "lon": -97.6699
     },
-    "position": {
-      "lat": 29.42013,
-      "lon": -93.06357,
-      "source": "live"
-    },
+    "position": null,
     "notified": false,
-    "updatedAt": "2026-10-10T19:53:09.502Z"
+    "updatedAt": "2026-10-10T23:20:08.109Z"
   },
   {
     "flightNumber": "DL4443",
