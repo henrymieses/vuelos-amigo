@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-14T01:41:16.154Z"
+    "updatedAt": "2026-10-14T07:16:27.977Z"
   },
   {
     "flightNumber": "AA1227",
     "status": "Expected",
     "scheduledTime": "2026-10-14 13:45-04:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-10-14 13:45-04:00",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-14T01:41:17.969Z"
+    "updatedAt": "2026-10-14T07:16:29.831Z"
   },
   {
     "flightNumber": "DL4443",
