@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Expected",
+    "status": "EnRoute",
     "scheduledTime": "2026-10-16 12:20-05:00",
     "estimatedTime": "2026-10-16 12:39-05:00",
     "departureAirport": {
@@ -16,15 +16,19 @@
       "lat": 34.056,
       "lon": -117.601
     },
-    "position": null,
+    "position": {
+      "lat": 34.427567,
+      "lon": -113.476006,
+      "source": "live"
+    },
     "notified": false,
-    "updatedAt": "2026-10-16T17:51:29.759Z"
+    "updatedAt": "2026-10-16T20:40:57.996Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Expected",
+    "status": "EnRoute",
     "scheduledTime": "2026-10-16 13:45-04:00",
-    "estimatedTime": "2026-10-16 13:45-04:00",
+    "estimatedTime": "2026-10-16 14:28-04:00",
     "departureAirport": {
       "iata": "MIA",
       "name": "Miami",
@@ -37,9 +41,13 @@
       "lat": 30.194498,
       "lon": -97.6699
     },
-    "position": null,
+    "position": {
+      "lat": 29.305664,
+      "lon": -92.993614,
+      "source": "live"
+    },
     "notified": false,
-    "updatedAt": "2026-10-16T17:51:31.601Z"
+    "updatedAt": "2026-10-16T20:40:59.755Z"
   },
   {
     "flightNumber": "DL4443",
