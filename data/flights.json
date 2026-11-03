@@ -2,8 +2,8 @@
   {
     "flightNumber": "AA2635",
     "status": "Arrived",
-    "scheduledTime": "2026-10-26 12:20-05:00",
-    "estimatedTime": "2026-10-26 12:20-05:00",
+    "scheduledTime": "2026-11-03 12:18-06:00",
+    "estimatedTime": "2026-11-03 12:54-06:00",
     "departureAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
@@ -18,28 +18,28 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-26T20:58:26.465Z"
+    "updatedAt": "2026-11-03T23:52:59.277Z"
   },
   {
     "flightNumber": "AA1227",
     "status": "Arrived",
-    "scheduledTime": "2026-10-26 14:00-04:00",
-    "estimatedTime": "2026-10-26 14:05-04:00",
+    "scheduledTime": "2026-11-03 07:43-05:00",
+    "estimatedTime": "2026-11-03 07:44-05:00",
     "departureAirport": {
-      "iata": "MIA",
-      "name": "Miami",
-      "lat": 25.7932,
-      "lon": -80.2906
+      "iata": "DTW",
+      "name": "Detroit Metropolitan Wayne County",
+      "lat": 42.2124,
+      "lon": -83.3534
     },
     "arrivalAirport": {
-      "iata": "AUS",
-      "name": "Austin Bergstrom",
-      "lat": 30.194498,
-      "lon": -97.6699
+      "iata": "CLT",
+      "name": "Charlotte Douglas",
+      "lat": 35.214,
+      "lon": -80.9431
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-10-26T20:58:28.351Z"
+    "updatedAt": "2026-11-03T23:53:01.078Z"
   },
   {
     "flightNumber": "DL4443",
