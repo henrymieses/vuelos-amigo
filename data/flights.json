@@ -1,9 +1,9 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Unknown",
+    "status": "EnRoute",
     "scheduledTime": "2026-11-05 14:22-08:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-11-05 14:33-08:00",
     "departureAirport": {
       "iata": "ONT",
       "name": "Ontario",
@@ -16,9 +16,13 @@
       "lat": 32.8968,
       "lon": -97.038
     },
-    "position": null,
+    "position": {
+      "lat": 34.06723,
+      "lon": -109.788506,
+      "source": "live"
+    },
     "notified": false,
-    "updatedAt": "2026-11-05T17:11:23.264Z"
+    "updatedAt": "2026-11-05T23:25:45.563Z"
   },
   {
     "flightNumber": "AA1227",
@@ -39,7 +43,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-05T17:11:25.137Z"
+    "updatedAt": "2026-11-05T23:25:47.391Z"
   },
   {
     "flightNumber": "DL4443",
