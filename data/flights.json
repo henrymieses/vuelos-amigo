@@ -1,34 +1,30 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "EnRoute",
-    "scheduledTime": "2026-11-05 14:22-08:00",
-    "estimatedTime": "2026-11-05 14:33-08:00",
+    "status": "Expected",
+    "scheduledTime": "2026-11-07 12:18-06:00",
+    "estimatedTime": "-",
     "departureAirport": {
-      "iata": "ONT",
-      "name": "Ontario",
-      "lat": 34.056,
-      "lon": -117.601
-    },
-    "arrivalAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
       "lat": 32.8968,
       "lon": -97.038
     },
-    "position": {
-      "lat": 34.06723,
-      "lon": -109.788506,
-      "source": "live"
+    "arrivalAirport": {
+      "iata": "ONT",
+      "name": "Ontario",
+      "lat": 34.056,
+      "lon": -117.601
     },
+    "position": null,
     "notified": false,
-    "updatedAt": "2026-11-05T23:25:45.563Z"
+    "updatedAt": "2026-11-07T01:46:20.713Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Arrived",
-    "scheduledTime": "2026-11-06 07:30-05:00",
-    "estimatedTime": "2026-11-06 07:34-05:00",
+    "status": "Expected",
+    "scheduledTime": "2026-11-07 07:15-05:00",
+    "estimatedTime": "-",
     "departureAirport": {
       "iata": "DTW",
       "name": "Detroit Metropolitan Wayne County",
@@ -43,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-06T21:58:14.834Z"
+    "updatedAt": "2026-11-07T01:46:22.605Z"
   },
   {
     "flightNumber": "DL4443",
