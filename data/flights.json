@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Expected",
+    "status": "Unknown",
     "scheduledTime": "2026-11-08 12:18-06:00",
     "estimatedTime": "-",
     "departureAirport": {
@@ -18,13 +18,13 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-08T05:10:09.649Z"
+    "updatedAt": "2026-11-08T15:51:14.357Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Expected",
+    "status": "Arrived",
     "scheduledTime": "2026-11-08 07:30-05:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-11-08 07:37-05:00",
     "departureAirport": {
       "iata": "DTW",
       "name": "Detroit Metropolitan Wayne County",
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-08T05:10:11.494Z"
+    "updatedAt": "2026-11-08T15:51:16.086Z"
   },
   {
     "flightNumber": "DL4443",
