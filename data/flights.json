@@ -1,7 +1,7 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Expected",
+    "status": "Unknown",
     "scheduledTime": "2026-11-14 12:18-06:00",
     "estimatedTime": "-",
     "departureAirport": {
@@ -18,11 +18,11 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-14T05:34:55.822Z"
+    "updatedAt": "2026-11-14T15:39:01.334Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Expected",
+    "status": "Unknown",
     "scheduledTime": "2026-11-14 07:15-05:00",
     "estimatedTime": "-",
     "departureAirport": {
@@ -39,7 +39,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-14T05:34:57.786Z"
+    "updatedAt": "2026-11-14T15:39:03.090Z"
   },
   {
     "flightNumber": "DL4443",
