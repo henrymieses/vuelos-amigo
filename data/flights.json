@@ -1,9 +1,9 @@
 [
   {
     "flightNumber": "AA2635",
-    "status": "Expected",
+    "status": "EnRoute",
     "scheduledTime": "2026-11-24 12:01-06:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-11-24 12:10-06:00",
     "departureAirport": {
       "iata": "DFW",
       "name": "Dallas-Fort Worth",
@@ -16,15 +16,19 @@
       "lat": 34.056,
       "lon": -117.601
     },
-    "position": null,
+    "position": {
+      "lat": 33.757633,
+      "lon": -111.29488,
+      "source": "live"
+    },
     "notified": false,
-    "updatedAt": "2026-11-24T05:14:08.109Z"
+    "updatedAt": "2026-11-24T20:01:14.108Z"
   },
   {
     "flightNumber": "AA1227",
-    "status": "Expected",
+    "status": "Arrived",
     "scheduledTime": "2026-11-24 07:21-05:00",
-    "estimatedTime": "-",
+    "estimatedTime": "2026-11-24 07:40-05:00",
     "departureAirport": {
       "iata": "DTW",
       "name": "Detroit Metropolitan Wayne County",
@@ -39,7 +43,7 @@
     },
     "position": null,
     "notified": false,
-    "updatedAt": "2026-11-24T05:14:09.864Z"
+    "updatedAt": "2026-11-24T20:01:16.171Z"
   },
   {
     "flightNumber": "DL4443",
